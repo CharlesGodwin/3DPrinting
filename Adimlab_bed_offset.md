@@ -28,7 +28,7 @@ G0 X3 Y12.5 Z5 ; go to left-front corner of bed
 G92 X0 Y0 Z5 ; set printer's coordinates to (0,0,5)
 G92 E0 ; set extruder to 0
 ; move the nozzle down the bed so it won't hit the clip
-G0 X-3 Y100 ; get away from clips
+G0 X-3 Y100 ; get away from clips and allow extruder to drip off the bed
 ; ready to go
 </pre>
 
