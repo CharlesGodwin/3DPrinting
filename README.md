@@ -5,5 +5,5 @@ __3D Printing__
 
 This is collection of articles and tools for 3D printing.
 
-1 How to adjust for offset of home and the bed on an Adimlab Gantry Pro.
+1- [How to adjust for offset of home and the bed on an Adimlab Gantry Pro](https://github.com/CharlesGodwin/3DPrinting/blob/master/Adimlab_bed_offset.md).
 
