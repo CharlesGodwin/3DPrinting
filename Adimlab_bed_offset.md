@@ -14,7 +14,7 @@ I thank Mark Rehorst and his comprehensive article https://drmrehorst.blogspot.c
 
 The solutions are to use gcode to:
 - Position the extruder at front left corner of bed and reset the printer coordinates to recognize this as 0,0,0
-- Reposition the extruder down the bed so that when it travels to the first cordinate in the model it travels up the bed, ather than from 0,0 directly to the point, and possibly coliding with the clip.
+- Reposition the extruder down the bed so that when it travels to the first cordinate in the model it travels up the bed, rather than from 0,0 directly to the point, and possibly coliding with the clip.
 
 For both Cura 4.6.x and PrusaSlicer 2.2.x, modify the printer settings and replace the startup gcode with the following:  
 <pre>
@@ -32,8 +32,8 @@ G0 X-3 Y100 ; get away from clips and allow extruder to drip off the bed
 ; ready to go
 </pre>
 
-Be sure the bed size is set to 315,315. The printer's documentation says the build size is 310, 310 but the bed is larger. Once this gcode has been enabled, any layout in the slicer will exactly match the final position of the model on the printer bed.
+Be sure the bed size is set to 315,315. The printer's documentation says the build size is 310, 310 but the bed is larger. Once this gcode has been enabled, any layout in the slicer will match the final position of the model on the printer bed.
 
-The offset values of 3X and 12.5Y are based on  observation of my printer. If you think they need revision or fine tuning, just change them in your gcode.
+The offset values of 3X and 12.5Y are based on observation of my printer. If you think they need revision or fine tuning, just change them in your gcode.
 
 If you have questions, comments or problems please open an issue on the github repository. https://github.com/CharlesGodwin/3DPrinting
