@@ -1,40 +1,65 @@
-__Adimlab Gantry Pro - Fixing bed Offset__
+# __Adimlab Gantry Pro - Fixing bed Offset__
 
-There are problems caused by the home (0X, 0Y) position on this printer being offset from the front left corner of the bed. If objects are arranged on the slicer's bed they are not printed at the same location on the printer's bed. The extruder is offset to the left by approximately 3mm (3X) and forward by approximately 12.5mm (12.5Y). The offset values of 3X and 12.5Y for bed location 0,0 are based on observation of my printer. This value may vary per machine setup, based on calibration of stop switches. I recommend you check your machine by manually positioning the X axis and Y axis until nozzle is poitioned at the exact corner of the bed. Use the numbers displayed on the LCD Panel. 
+__Revised 2020-05-11__  
 
-A second problem is that the extruder sometimes crashes into the left front bed glass clip during startup on its way to the first coordinate. This is caused by the direct route it takes from 0,0 to the start point.
+There are problems caused by the home (0X, 0Y) position on this printer being offset from the front left corner of the bed. If objects are arranged on the slicer's bed they are not printed at the same location on the printer's bed. The extruder is offset to the left by approximately 3mm (3X) and forward by approximately 12.5mm (12.5Y). 
 
-This has been tested with a Gantry Pro using Marlin 1.1.9 Rev 1.5.1A firmware and using Cura 4.6.1 and PrusaSlicer 2.2.0. The gcode may work with other slicers, but has not been tested.
+The following has been tested with a Gantry Pro using Marlin 1.1.9 Rev 1.5.1A firmware and using Cura 4.6.1 and PrusaSlicer 2.2.0. The gcode may work with other slicers, but has not been tested.
 
-This will:
-- Allow the slicer to accurately layout object(s) on the bed even though the bed corner is not at 0X and 0Y.
-- During startup, position the extruder out of the way of the left front bed glass clip so they doesn't collide.
+I thank Mark Rehorst and his [comprehensive article](https://drmrehorst.blogspot.com/2017/08/setting-up-3d-printers-origin.html) that clearly describes the problem. His solution is for another brand of printer and I have modified it to suit the Gantry Pro.
 
-I thank Mark Rehorst and his comprehensive article https://drmrehorst.blogspot.com/2017/08/setting-up-3d-printers-origin.html that clearly describes the problem. His solution is for another printer and I have modified it to suit the Gantry Pro. I added the extruder / clip guard.
+## __Determining the offset__
 
-The solutions are to use gcode to:
-- Position the extruder at front left corner of bed and reset the printer coordinates to recognize this as 0,0,0
-- Reposition the extruder down the bed so that when it travels to the first cordinate in the model it travels up the bed, rather than from 0,0 directly to the point, and possibly coliding with the clip.
+** The offset values of X3.00 and Y12.50 for bed location 0,0 are based on observation of my printer. This set of values varies per machine setup, based on calibration of stop switches. You should check your machine for the values to use:
+- Using the LCD panel, manually position the three axis to the left corner of the bed.
+- First set the Z axis to 1, so the nozzle is close to the bed but not touching.
+- Then move the Y and Z axis until you think the nozzle is positioned at the front left corner of the bed. Start with a value of Y12.50 and X3.00. You don't need to be precise, just as close as you want. N one will notice one or two millimeters.
+- Record the X and Y coordinates as you move the extruder.
 
-For both Cura 4.6.x and PrusaSlicer 2.2.x, modify the printer settings and replace the startup gcode with the following:  
+The first set of [instructions](#using-embedded-gcode) are for how to reset the bed corner location using gcode inserted into each print by your slicer. There is also an [alternative solution](#modifying-the-firmware) that modifies the printer's firmware instead. Use one solution or the other, DO NOT use both.
+
+Please review the [notes](#notes) at the end.
+
+## __Using embedded gcode__
+
+The following change will allow a slicer to accurately layout object(s) on the bed, even though the bed corner is not at 0X and 0Y, by positioning the extruder at front left corner of bed and reset the printer coordinates to recognize this as 0,0,
+In the slicer's printer definition modify the printer settings and replace the startup gcode with the following:  
 <pre>
 ; intialize
 G90 ; use absolute coordinates
 G28 ; Home
 ; reset coordinates
-G0 Z5 ; raise nozzle 5mm
-G0 X3 Y12.5 Z5 ; go to left-front corner of bed ** check these values **
+G0 Z5.00 ; raise nozzle 5mm
+; ** USE YOUR OWN VALUES **
+G0 X3.00 Y12.50 Z5.00 ; go to left-front corner of bed 
 G92 X0 Y0 Z5 ; set printer's coordinates to (0,0,5)
 G92 E0 ; set extruder to 0
-; move the nozzle down the bed so it won't hit the clip - this is optional
-G0 X-3 Y100 ; get away from clips and allow extruder to drip off the bed
-; ready to go
 </pre>
+Please review the [notes](#notes) at the end.
 
-Be sure the bed size is set to 315,315. The printer's documentation says the build size is 310, 310 but the bed is larger. Once this gcode has been enabled, any layout in the slicer will match the final position of the model on the printer bed.
+## __Modifying the firmware__
+Scott Thomas, in the Adimlab Facebook group, identified a way to make the change permanent in printer's firmware. Once complete, the settings are permanent in firmware and do not depend on slicer settings. 
+However, in order to do this, you must have software that can send gcode directly to the printer via its serial USB port. There are two programs that have been tested:
+1. [OctoPrint / OctoPi](https://octoprint.org/). Allows llows directly ending gcode to the printer using a browser interface. 
+2. [PronterFace](https://www.pronterface.com/). Provides  lots of utility access to the printer. Your computer must be directly connected to the printer's USB port. This solftware is bundled with PrusaSlicer 2.2 or may be downloaded from PronterFace's website.
 
-__NOTES:__ 
-- The default Adimlab firmware does not enable INCH_MODE_SUPPORT so G21 to set metric is not neccesary.
-- Y_MAX_POS, the furthest the extruder can go on the bed in Y axis, is set to 320. Since the home position is -12.5, the maximum Y axis  ON THE BED for a build is 307.5 (320 - 12.5). This is a little short of the declared 310 but will probably never interfere with a print.
+Perform these gcode steps:
 
-If you have questions, comments, ehnancements or problems please open an issue on the github repository. https://github.com/CharlesGodwin/3DPrinting
+- Get the current settings by sending M503  
+`M503`
+- This will return many current firmware settings. Look for the text `Home offset:`, the next line should be `M206 X0.00 Y0.00 Z0.00`
+- Send a M206 command using the X and Y numbers calculated [here](#determining-the-offset)  
+`M206 X-3.00 Y-12.50 Z0.00`
+- Resend `M503` to confirm the new `Home offset:` value
+- Save it to memory by sending  
+`M500`
+- Turn off the printer __AND__ disconnect the USB to prevent it powering the motherboard. 
+- Turn on the printer and reconnect the USB.
+- Resend `M503` to confirm the new `Home offset:` value.
+
+## __NOTES:__
+- Be sure the bed size is set to 315, 315. The printer's documentation says the build size is 310, 310 but the bed is larger. Once this gcode has been enabled, any layout in the slicer will match the position of the model on the printer bed.
+- Y_MAX_POS, the furthest the extruder can go on the bed in Y axis, is set to 320. Since the home position is about -12.50, the maximum Y axis ON THE BED for a build is 307.50 (320 - 12.50). This is a little short of the declared 310 but will probably never interfere with a print. Your performance may vary.
+ A second problem with the extruder sometimes crashing into the left front bed glass clip during startup on its way to the first coordinate is discussed [here](Adimlab_miss_the_clip.md). 
+
+If you have questions, comments, enhancements or problems please open an issue on the [github repository](https://github.com/CharlesGodwin/3DPrinting).
