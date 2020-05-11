@@ -23,7 +23,7 @@ Please review the [notes](#notes) at the end.
 ## __Using embedded gcode__
 
 The following change will allow a slicer to accurately layout object(s) on the bed, even though the bed corner is not at 0X and 0Y, by positioning the extruder at front left corner of bed and reset the printer coordinates to recognize this as 0,0,
-In the slicer's printer definition modify the printer settings and replace the startup gcode with the following:  
+In the slicer's printer definition modify the printer settings and replace the Start G-code with the following:  
 <pre>
 ; intialize
 G90 ; use absolute coordinates

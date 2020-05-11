@@ -7,7 +7,7 @@ The solution is to reposition the extruder down the bed so that when it travels 
 
 The following has been tested with a Gantry Pro using Marlin 1.1.9 Rev 1.5.1A firmware and using Cura 4.6.1 and PrusaSlicer 2.2.0. The gcode may work with other slicers, but has not been tested.
 
-In the slicer's printer definition modify the printer start print settings and insert the following gcode command. It should be placed after any exisiting positioning code, such as G28.
+In the slicer's printer definition modify the printer start print settings and insert the following gcode command in Start G-code. It should be placed after any exisiting positioning code, such as G28.
 
 `G0 X-3 Y100 ; get away from clips but allow extruder to drip off the bed`
 
