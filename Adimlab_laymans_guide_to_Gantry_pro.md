@@ -82,10 +82,8 @@ At the time of writing this there was no packaged automatic bed leveller availab
 
 ## Cabinet or Enclosure
 
-May use a cabinet to enclose the entire printer to allow for a warm chamber for printing and noise reduction. I have found many designs but not that match my budget. The Gantry Pro is a big printer, so some quick solutions will not work.
+Many use a cabinet to enclose the entire printer to allow for a warm chamber for printing and noise reduction. I have found many designs but not that match my budget. The Gantry Pro is a big printer, so some quick solutions will not work.
 
 # Conclusion
 
 This is a summary of the hard lessons I learned. I have not discussed which slicer to use or print setting as I have had success with both Cura and Prusa Slicer. If you follow these setup guidelines, you will have a stable setup to use for experimenting until you can print the way you want to print. Do not give up, it took my over a month to get my routines in place to have repeatable, successful results.
-
-May 7, 2020 Charles Godwin Page 3
