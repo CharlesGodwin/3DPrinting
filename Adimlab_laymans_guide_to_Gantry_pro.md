@@ -11,8 +11,8 @@ I found these items especially useful for setup and regular use of the printer. 
 
 - Small water spray bottle
 - 2 micro-fibre cloths
-- Small multi-Good #2 Philipstip screwdriver
-- 7 mm socket or wrenchnut driver
+- Good #2 Philips screwdriver
+- 7 mm nut driver or wrench
 - 10 mm wrench
 - 17 mm wrench
 - Glue sticks for paper
