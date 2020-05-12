@@ -1,5 +1,5 @@
 #
-# A Layman's Guide to the Adimlabs Gantry Pro
+# How to Ensure All Axes are Properly Level on a ADIMlab Gantry Pro
 
 # Introduction
 
@@ -53,9 +53,6 @@ As described earlier, raise the x-axis up 100mm to give you access to the bed. U
 
 Automatic 'bed levelling' is the better solution as the a computer then adjust for all imperfections in flat.
 
-# Slicer Software
-I plan to add a paragraph or two about Cura and PrusaSlicer
-
 # Routine Use
 
 I have found that every time I print something, I should properly prepare my bed to ensure a good start to each print. Properly prepare is done in two steps. Any time I omit one of these steps I quickly regret it as my first layer does not go well and I must start over.
@@ -69,26 +66,6 @@ Sooner or later, when least expected, you will get a clogged nozzle. The first s
 4. **First layer**
 If your first layer does not go down without any 'oops' filament, or any filament sticking to itself, or filament lifting from the bed then you have a good chance of a good print. If not, stop and recheck your preparation and levelling. _Nothing can correct a bad first layer_.
 
-# Being One with the Printer
-I plan text about connecting a computer to the printer, either directly or with OctoPrint.
-
-# Enhancements
-
-I have installed one significant enhancement and plan two others.
-
-## OctoPrint
-
-This is a computer-based web server for managing your printer. [Full information is here.](https://octoprint.org/) It allows management of most printer function using a browser interface from anywhere in your network. Many users implement the server on a Raspberry Pi and the organization markets all-in-one turnkey Pi systems for those who chose not to build their own system. I have installed a Pi based unit and it has significantly improved my access to the printer. The only time I use the printer's LCD screen and controls is when I am levelling the bed. I use OctoPrint interface with my slicer to directly download the gcode to the server. I can control start and stop and check job status using my browser. It also supports a camera interface so you can watch your printer from afar. I have no recommendation on which camera to use or how to mount it.
-
-## Automatic Bed Levelling
-
-Automatic bed leveling eliminates problems with adjusting for warped beds. The software examines multiple points on the bed and calculates the correct distance, in software, to set the height of the nozzle. This takes bed levelling out of your hands, so bed preparation gets much simpler/
-
-At the time of writing this there was no packaged automatic bed leveller available although [Ray Shain](https://everybody3dprints.com/) is developing one and it is expected soon. I look forward to its availability as I will install bed leveling as soon as its available.
-
-## Cabinet or Enclosure
-
-Many use a cabinet to enclose the entire printer to allow for a warm chamber for printing and noise reduction. I have found many designs but not that match my budget. The Gantry Pro is a big printer, so some quick solutions will not work.
 
 # Conclusion
 
