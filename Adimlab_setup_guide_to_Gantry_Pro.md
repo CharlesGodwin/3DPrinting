@@ -15,7 +15,6 @@ I found these items especially useful for setup and regular use of the printer. 
 - 7 mm nut driver or wrench
 - 10 mm wrench
 - 17 mm wrench
-- Glue sticks for paper
 - 30 mm / 12" metal ruler / straight edge
 - Metric metal feeler gauges
 - Scissors
@@ -55,23 +54,7 @@ Automatic 'bed levelling' is the better solution as the a computer then adjust f
 
 # Routine Use
 
-I have found that every time I print something, I should properly prepare my bed to ensure a good start to each print. Properly prepare is done in two steps. Any time I omit one of these steps I quickly regret it as my first layer does not go well and I must start over.
-
-1. **Prepare the Bed**
-There are many opinions on what the proper bed preparation is for printing. I am having success with using a glue stick on the bed. A separate article, describing alternatives, is being prepared. For now, this describes what has worked for me.
-__Clean the bed and apply fresh glue__
-Every time I prepare the bed, I use a water bottle to wet the surface of the bed.
-__Be careful to not spray any electronics or wiring.__
-I then wipe off all the previous glue. I have two cloths. One I always use for the initial wipe off and it quickly accumulates lots of glue, but I do not care. After I wipe off most of the glue, I wet the glass again and wipe the bed clean and dry with the second, less dirty, cloth. Rinse and dry these cloths regularly. Then I apply fresh glue. I use an Elmer's Purple dissolvable paper glue stick to apply a complete layer of glue to the glass. I cover the entire surface running the stick up and down and then repeat with the stick running across. I clean and glue the bed when it is still cool and before heating.
-
-2. **Bed levelling**
-I always, always, bed level each time. Any time I get rushed and omit this step, I regret it. The Owners Manual, in section 6 (2), describes the bed levelling procedure. I quickly found I could not get good, repeatable, results using paper as a thickness guide, so I now use a mechanics feeler gauge. These are readily available in auto supply stores, hardware stores and online. The gauges are made of steel so are easy to handle and provide repeatable results. I use a gauge with 0.05mm thickness. This is thin but adjusting so the extruder just drags as the gauge is moved under it gives me good results.
-
-3. **Clogged nozzle**
-Sooner or later, when least expected, you will get a clogged nozzle. The first signs are either a bad first layer with little or no filament or no filament coming out of the nozzle during a print. Keep spare nozzles on hand, they are cheap but important. Preheat the end (nozzle) to allow removing the nozzle. The old nozzle must be removed when it is hot, so preheat the end. The nozzle is removed with a 7mm nut driver or 7mm wrench. The nut driver is easier to use when installing the new nozzle. The end of the heater assembly must be held in place while loosening and tightening the nozzle. This requires a 17mm wrench.
-4. **First layer**
-If your first layer does not go down without any 'oops' filament, or any filament sticking to itself, or filament lifting from the bed then you have a good chance of a good print. If not, stop and recheck your preparation and levelling. _Nothing can correct a bad first layer_.
-
+[Refer to the separate document](getting_a_good_first_layer.md) for help with print set up.
 # Conclusion
 
 This is a summary of the hard lessons I learned. I have not discussed which slicer to use or print setting as I have had success with both Cura and Prusa Slicer. If you follow these setup guidelines, you will have a stable setup to use for experimenting until you can print the way you want to print. Do not give up, it took my over a month to get my routines in place to have repeatable, successful results.
