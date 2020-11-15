@@ -14,7 +14,7 @@ A collection of articles and tools for 3D printing.
 
 Except when noted specifically in the article, all material is the work of Charles Godwin.
 
-I have been a software developer since 1970, working with systems as small as Android and Apple ][ and as large as IBM mainframes.
+I have been a software developer since 1970, working with systems as small as Arduino and Apple ][ and as large as IBM mainframes.
 
 3D printing is a new interest for me and I found a shortage of simple how-to material for my ADIMlab Gantry Pro. This is my collection of my experiences others to share.
 
